@@ -1,0 +1,16 @@
+<configuration>
+
+    <appender name="JSON" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="org.staale.LogstashEncoder" />
+    </appender>
+
+    <appender name="TEXT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%boldGreen(%d{HH:mm:ss.SSS}) %yellow([%-10thread{10}]) %highlight(%-5level) %cyan(%-36logger{36})| %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="debug">
+        <appender-ref ref="${LOG_APPENDER:-JSON}"/>
+    </root>
+</configuration>
